@@ -30,7 +30,12 @@ dependencies {
         if (providers.gradleProperty('localIdePath').isPresent()) {
             local(providers.gradleProperty('localIdePath').get())
         } else {
-            intellijIdeaCommunity(providers.gradleProperty('ideVersion').orElse('2024.3.5').get())
+            def ideVersion = providers.gradleProperty('ideVersion').orElse('2024.3.5').get()
+            if (ideVersion.startsWith('2026.') || ideVersion.startsWith('2025.3')) {
+                intellijIdea(ideVersion)
+            } else {
+                intellijIdeaCommunity(ideVersion)
+            }
         }
     }
 }
