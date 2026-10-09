@@ -1,4 +1,4 @@
-package io.cygert.forceprojecttabs;
+package com.mogudian.projecttabsrestored;
 
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.application.ApplicationManager;
@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.swing.Timer;
 
-class MacOsForceProjectTabs implements ProjectActivity {
+class ProjectTabsRestored implements ProjectActivity {
     private static final int RETRY_DELAY_MS = 200;
     private static final int MAX_RETRIES = 100;
 

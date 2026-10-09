@@ -3,8 +3,8 @@ plugins {
     id 'org.jetbrains.intellij.platform' version "2.19.0"
 }
 
-group = 'io.cygert.forceprojecttabs'
-version = '2.1'
+group = 'com.mogudian.projecttabsrestored'
+version = '1.0.0'
 
 java {
     toolchain {
@@ -15,6 +15,12 @@ java {
 tasks.withType(JavaCompile).configureEach {
     options.release = 21
     options.compilerArgs += '-Xlint:deprecation'
+}
+
+tasks.withType(Jar).configureEach {
+    from('LICENSE') {
+        into('META-INF')
+    }
 }
 
 repositories {
@@ -38,8 +44,7 @@ dependencies {
 patchPluginXml {
     sinceBuild = '243.26053'
     changeNotes = """
-    Merge newly opened project windows again on IntelliJ IDEA 2025 and 2026.
-    Wait until the project window is visible before invoking the built-in merge action.
+    Initial release of this maintained fork, with project window merging restored for IntelliJ IDEA 2025 and 2026.
     """
 }
 test {
